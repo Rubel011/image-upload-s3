@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const multers3 = require('multer-s3');
+const multer = require('multer');
 
 const app = express();
 const port = 3000;
@@ -18,7 +20,7 @@ const Image = mongoose.model('Image', {
 const storage = multer.diskStorage({
   destination: 'uploads/',
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
+    cb(null, Date.now() + '-' + file.originalname); 
   }
 });
 
